@@ -70,17 +70,10 @@ string QInt::toDec()
 
 	rs = numDec.getNum();
 
-	int i = 0;
-	for (; i < rs.length(); i++) {
-		if (rs[i] != '0')
-			break;
-	}
 	if (signThis == 1) {
-		i--;
-		rs[i] = '-';
+		rs = '-' + rs;
 	}
-
-	rs.erase(0, i);
+	
 	if (rs.empty()) rs.push_back('0');
 	return rs;
 }
@@ -98,7 +91,7 @@ string QInt::toBin()
 		if (rs[i] != '0')
 			break;
 	}
-	//rs.erase(0, i);
+	rs.erase(0, i);
 	if (rs.empty()) rs.push_back('0');
 	return rs;
 }
